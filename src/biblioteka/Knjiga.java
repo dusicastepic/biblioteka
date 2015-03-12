@@ -38,6 +38,28 @@ public class Knjiga {
 	public void setIzdanje(int izdanje) {
 		this.izdanje = izdanje;
 	}
+	public String toString() {
+		return "Knjiga [naslov=" + naslov + ", autori=" + autori + ", izdavac="
+				+ izdavac + ", ISBN=" + ISBN + ", izdanje=" + izdanje + "]";
+	}
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (ISBN ^ (ISBN >>> 32));
+		return result;
+	}
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Knjiga other = (Knjiga) obj;
+		if (ISBN != other.ISBN)
+			return false;
+		return true;
+	}
 	
 
 }
